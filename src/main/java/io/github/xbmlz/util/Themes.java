@@ -3,6 +3,8 @@ package io.github.xbmlz.util;
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.themes.FlatMacDarkLaf;
+import com.formdev.flatlaf.themes.FlatMacLightLaf;
 import com.jthemedetecor.OsThemeDetector;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,9 +15,13 @@ public class Themes {
 
     private static final Logger log = LoggerFactory.getLogger(Themes.class);
 
-    public static final String FLAT_LIGHT_LAF = FlatLightLaf.class.getName();
+    public static final String FLAT_LIGHT = FlatLightLaf.class.getName();
 
-    public static final String FLAT_DARK_LAF = FlatDarkLaf.class.getName();
+    public static final String FLAT_DARK = FlatDarkLaf.class.getName();
+
+    public static final String FLAT_MAC_LIGHT = FlatMacLightLaf.class.getName();
+
+    public static final String FLAT_MAC_DARK = FlatMacDarkLaf.class.getName();
 
     public static final String LIGHT = "light";
 
@@ -29,12 +35,12 @@ public class Themes {
         String laf;
         try {
             switch (theme) {
-                case DARK -> laf = FLAT_DARK_LAF;
+                case DARK -> laf = FLAT_DARK;
                 case SYSTEM -> {
                     detectSystemTheme();
                     return;
                 }
-                default -> laf = FLAT_LIGHT_LAF;
+                default -> laf = FLAT_LIGHT;
             }
             UIManager.setLookAndFeel(laf);
             FlatLaf.updateUI();
@@ -42,6 +48,27 @@ public class Themes {
             log.warn("Failed to set theme: {}", theme, e);
         }
     }
+
+//    public static void setAccentColor(String accentColorKey) {
+//        for( int i = 0; i < accentColorButtons.length; i++ ) {
+//            if( accentColorButtons[i].isSelected() ) {
+//                accentColorKey = accentColorKeys[i];
+//                break;
+//            }
+//        }
+//
+//        accentColor = (accentColorKey != null && accentColorKey != accentColorKeys[0])
+//                ? UIManager.getColor( accentColorKey )
+//                : null;
+//
+//        Class<? extends LookAndFeel> lafClass = UIManager.getLookAndFeel().getClass();
+//        try {
+//            FlatLaf.setup( lafClass.getDeclaredConstructor().newInstance() );
+//            FlatLaf.updateUI();
+//        } catch( Exception ex ) {
+//            LoggingFacade.INSTANCE.logSevere( null, ex );
+//        }
+//    }
 
     public static void save(String theme) {
         Prefs.put(Prefs.KEY_THEME, theme);
@@ -70,6 +97,8 @@ public class Themes {
     }
 
     public static void init() {
+        // application specific UI defaults
+        FlatLaf.registerCustomDefaultsSource( "themes" );
         toggle(get());
     }
 }

@@ -31,6 +31,7 @@ public class MainFrame extends JFrame {
 
         restoreWindowBounds();
         Themes.init();
+        Messages.init();
         initSystemTray();
         initComponents();
     }

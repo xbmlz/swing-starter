@@ -26,15 +26,30 @@ public class TopMenubar extends JMenuBar {
     }
 
     public void initComponents() {
-        JMenu helpMenu = new JMenu(Messages.getString("toolbar.help"));
-        helpMenu.setMnemonic('H');
+        // file
         {
-            JMenuItem aboutMenuItem = new JMenuItem(Messages.getString("toolbar.about"));
-            aboutMenuItem.setMnemonic('A');
-            aboutMenuItem.addActionListener(e -> about());
-            helpMenu.add(aboutMenuItem);
+            JMenu fileMenu = new JMenu(Messages.getString("toolbar.file"));
+            fileMenu.setMnemonic('F');
+            {
+                JMenuItem exitMenuItem = new JMenuItem(Messages.getString("toolbar.exit"));
+                exitMenuItem.setMnemonic('E');
+                exitMenuItem.addActionListener(e -> System.exit(0));
+                fileMenu.add(exitMenuItem);
+            }
+            add(fileMenu);
         }
-        add(helpMenu);
+        // help
+        {
+            JMenu helpMenu = new JMenu(Messages.getString("toolbar.help"));
+            helpMenu.setMnemonic('H');
+            {
+                JMenuItem aboutMenuItem = new JMenuItem(Messages.getString("toolbar.about"));
+                aboutMenuItem.setMnemonic('A');
+                aboutMenuItem.addActionListener(e -> about());
+                helpMenu.add(aboutMenuItem);
+            }
+            add(helpMenu);
+        }
     }
 
     private void about() {

@@ -16,9 +16,8 @@ public class DemoTabs extends JTabbedPane {
         initComponents();
     }
 
-
     private void initComponents() {
-        addTab(Messages.getString("tab.settings"), Icons.SETTINGS, new SettingsPanel());
+        addTab(Messages.getString("settings"), Icons.SETTINGS, new SettingsPanel());
     }
 
     private void selectedTabChanged() {

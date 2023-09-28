@@ -11,13 +11,12 @@ public class Messages {
 
     private static final String BUNDLE_NAME = "messages/messages";
 
-    public static final String LOCAL_ZH = "zh_CN";
+    public static final String LOCAL_ZH = "zh";
 
-    public static final String LOCAL_EN = "en_US";
+    public static final String LOCAL_EN = "en";
 
-    public Messages() {
-        // do nothing
-        System.out.println("Messages");
+    public static void init() {
+        Locale.setDefault(new Locale(getLocale()));
     }
 
     public static String getString(String key) {
@@ -37,8 +36,6 @@ public class Messages {
             Locale.setDefault(Locale.CHINA);
         }
         Prefs.put(Prefs.KEY_LANGUAGE, Locale.getDefault().getLanguage());
-        // 重新绘制
-        App.mainFrame.revalidate();
-        App.mainFrame.repaint();
+
     }
 }

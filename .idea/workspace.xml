@@ -4,36 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29cd4864-bdd9-46ac-8e67-77dc63fa286b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/release.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/model/KV.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/MainFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/component/TopMenubar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/demo/DemoTabs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/demo/SettingsPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/Constants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/Icons.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/Messages.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/Prefs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/Themes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/settings.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/logo-128.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/logo-16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/logo-256.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/logo-32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/messages/messages.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/messages/messages_zh_CN.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/versions.json" afterDir="false" />
+    <list default="true" id="29cd4864-bdd9-46ac-8e67-77dc63fa286b" name="Changes" comment="chore: init commit">
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/component/AccentColorIcon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/ProcessUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/messages/messages_zh.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/themes/FlatDarkLaf.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/themes/FlatLightLaf.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/component/TopMenubar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/component/TopMenubar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/demo/DemoTabs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/demo/DemoTabs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/demo/SettingsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/demo/SettingsPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/Messages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/Themes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/Themes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages/messages_zh_CN.properties" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,24 +53,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/code/java/swing-starter/src/main/resources/icons&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "E:/code/java/swing-starter/src/main/resources/icons",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\code\java\swing-starter\src\main\resources\icons" />
@@ -133,7 +119,7 @@
       <updated>1695795304963</updated>
       <workItem from="1695795306037" duration="21041000" />
       <workItem from="1695868360696" duration="6956000" />
-      <workItem from="1695879570199" duration="884000" />
+      <workItem from="1695879570199" duration="6382000" />
     </task>
     <servers />
   </component>
@@ -151,15 +137,8 @@
       </map>
     </option>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/Messages.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="chore: init commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: init commit" />
   </component>
 </project>
