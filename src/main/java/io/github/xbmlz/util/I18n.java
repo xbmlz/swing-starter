@@ -1,13 +1,11 @@
 package io.github.xbmlz.util;
 
-import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.util.StringUtils;
-import io.github.xbmlz.App;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class Messages {
+public class I18n {
 
     private static final String BUNDLE_NAME = "messages/messages";
 

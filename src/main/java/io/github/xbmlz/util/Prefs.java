@@ -13,6 +13,7 @@ public class Prefs {
     public static final String KEY_LANGUAGE = "language";
 
     public static final Preferences PREFS = Preferences.userRoot().node(KEY_PREFS);
+    public static final String KEY_ACCENT_COLOR = "accent.color";
 
     public static void put(String key, String value) {
         PREFS.put(key, value);

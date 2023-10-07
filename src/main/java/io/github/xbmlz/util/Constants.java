@@ -10,5 +10,4 @@ public class Constants {
 
     public static final String THEME_LIGHT = "light";
 
-
 }

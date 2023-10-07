@@ -4,20 +4,17 @@ import com.formdev.flatlaf.extras.FlatSVGUtils;
 import com.formdev.flatlaf.ui.FlatUIUtils;
 import com.formdev.flatlaf.util.StringUtils;
 import com.formdev.flatlaf.util.UIScale;
-import io.github.xbmlz.util.Constants;
-import io.github.xbmlz.util.Messages;
-import io.github.xbmlz.util.Prefs;
+import io.github.xbmlz.ui.component.SystemTray;
 import io.github.xbmlz.ui.component.TopMenubar;
-import io.github.xbmlz.ui.demo.DemoTabs;
-import io.github.xbmlz.util.Themes;
+import io.github.xbmlz.util.Constants;
+import io.github.xbmlz.util.I18n;
+import io.github.xbmlz.util.Prefs;
+import io.github.xbmlz.util.Theme;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.Objects;
 
 public class MainFrame extends JFrame {
 
@@ -30,69 +27,14 @@ public class MainFrame extends JFrame {
         setLocationRelativeTo(null);
 
         restoreWindowBounds();
-        Themes.init();
-        Messages.init();
-        initSystemTray();
         initComponents();
+        SystemTray.init();
+        Theme.init();
+        I18n.init();
     }
 
     private void initComponents() {
         setJMenuBar(new TopMenubar());
-        add(new DemoTabs());
-    }
-
-    private void initSystemTray() {
-        if (!SystemTray.isSupported()) {
-            log.warn("System tray is not supported");
-        }
-        // Popup menu not support Chinese, customize it. Java awt popup menu 不支持中文，需要自定义
-        JDialog trayDialog = new JDialog();
-        trayDialog.setUndecorated(true);
-        JPopupMenu trayMenu = new JPopupMenu() {
-            @Override
-            protected void firePopupMenuWillBecomeInvisible() {
-                trayDialog.setVisible(false);
-                super.firePopupMenuWillBecomeInvisible();
-            }
-        };
-
-        JMenuItem showItem = new JMenuItem(Messages.getString("app.show"));
-        showItem.addActionListener(e -> setVisible(true));
-        trayMenu.add(showItem);
-
-        JMenuItem exitItem = new JMenuItem(Messages.getString("app.exit"));
-        exitItem.addActionListener(e -> quit());
-        trayMenu.add(exitItem);
-
-        // create system tray icon.
-        ImageIcon trayIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource(Constants.APP_ICON_PNG)));
-        TrayIcon tray = new TrayIcon(trayIcon.getImage(), Constants.APP_NAME);
-        tray.setImageAutoSize(true);
-        tray.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                if (e.getButton() == MouseEvent.BUTTON1) {
-                    setVisible(true);
-                }
-                if (e.getButton() == MouseEvent.BUTTON3 && e.isPopupTrigger()) {
-                    trayDialog.setSize(trayMenu.getPreferredSize());
-                    trayDialog.setLocation(e.getX(), e.getY() - trayMenu.getHeight());
-                    trayDialog.setVisible(true);
-                    trayMenu.show(trayDialog, 0, 0);
-                }
-            }
-        });
-        // add the tray icon to the system tray.
-        try {
-            SystemTray.getSystemTray().add(tray);
-        } catch (AWTException e) {
-            log.error("Can't add tray icon", e);
-        }
-    }
-
-    private void quit() {
-        storeWindowBounds();
-        System.exit(0);
     }
 
     private void restoreWindowBounds() {
@@ -139,5 +81,11 @@ public class MainFrame extends JFrame {
         int width = UIScale.unscale(r.width);
         int height = UIScale.unscale(r.height);
         Prefs.put(Prefs.KEY_WINDOW_BOUNDS, x + "," + y + ',' + width + ',' + height);
+    }
+
+    public void quit() {
+        storeWindowBounds();
+        dispose();
+        System.exit(0);
     }
 }

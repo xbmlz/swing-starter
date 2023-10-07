@@ -1,10 +1,12 @@
 package io.github.xbmlz.ui.component;
 
 import com.formdev.flatlaf.FlatClientProperties;
+import com.formdev.flatlaf.extras.components.FlatButton;
 import io.github.xbmlz.App;
-import io.github.xbmlz.ui.MainFrame;
+import io.github.xbmlz.ui.dialog.SettingsDialog;
 import io.github.xbmlz.util.Constants;
-import io.github.xbmlz.util.Messages;
+import io.github.xbmlz.util.I18n;
+import io.github.xbmlz.util.Icons;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,6 +23,8 @@ public class TopMenubar extends JMenuBar {
 
     private static final Logger log = LoggerFactory.getLogger(TopMenubar.class);
 
+    private SettingsDialog settingsDialog;
+
     public TopMenubar() {
         initComponents();
     }
@@ -28,10 +32,10 @@ public class TopMenubar extends JMenuBar {
     public void initComponents() {
         // file
         {
-            JMenu fileMenu = new JMenu(Messages.getString("toolbar.file"));
+            JMenu fileMenu = new JMenu(I18n.getString("toolbar.file"));
             fileMenu.setMnemonic('F');
             {
-                JMenuItem exitMenuItem = new JMenuItem(Messages.getString("toolbar.exit"));
+                JMenuItem exitMenuItem = new JMenuItem(I18n.getString("toolbar.exit"));
                 exitMenuItem.setMnemonic('E');
                 exitMenuItem.addActionListener(e -> System.exit(0));
                 fileMenu.add(exitMenuItem);
@@ -40,17 +44,36 @@ public class TopMenubar extends JMenuBar {
         }
         // help
         {
-            JMenu helpMenu = new JMenu(Messages.getString("toolbar.help"));
+            JMenu helpMenu = new JMenu(I18n.getString("toolbar.help"));
             helpMenu.setMnemonic('H');
             {
-                JMenuItem aboutMenuItem = new JMenuItem(Messages.getString("toolbar.about"));
+                JMenuItem aboutMenuItem = new JMenuItem(I18n.getString("toolbar.about"));
                 aboutMenuItem.setMnemonic('A');
                 aboutMenuItem.addActionListener(e -> about());
                 helpMenu.add(aboutMenuItem);
             }
             add(helpMenu);
         }
+        // add "Users" button to menubar
+        {
+            FlatButton usersButton = new FlatButton();
+            usersButton.setIcon(Icons.SETTINGS);
+            usersButton.setButtonType(FlatButton.ButtonType.toolBarButton);
+            usersButton.setFocusable(false);
+            usersButton.addActionListener(e -> settings());
+            add(Box.createGlue());
+            add(usersButton);
+        }
     }
+
+    private void settings() {
+        if (settingsDialog == null) {
+            settingsDialog = new SettingsDialog();
+        }
+        settingsDialog.setVisible(true);
+        settingsDialog.setLocationRelativeTo(App.mainFrame);
+    }
+
 
     private void about() {
         JLabel titleLabel = new JLabel(Constants.APP_NAME);
