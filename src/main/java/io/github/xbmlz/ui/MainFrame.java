@@ -4,7 +4,7 @@ import com.formdev.flatlaf.extras.FlatSVGUtils;
 import com.formdev.flatlaf.ui.FlatUIUtils;
 import com.formdev.flatlaf.util.StringUtils;
 import com.formdev.flatlaf.util.UIScale;
-import io.github.xbmlz.ui.component.SystemTray;
+import io.github.xbmlz.ui.component.Tray;
 import io.github.xbmlz.ui.component.TopMenubar;
 import io.github.xbmlz.util.Constants;
 import io.github.xbmlz.util.I18n;
@@ -28,7 +28,7 @@ public class MainFrame extends JFrame {
 
         restoreWindowBounds();
         initComponents();
-        SystemTray.init();
+        Tray.init();
         Theme.init();
         I18n.init();
     }

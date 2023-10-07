@@ -1,7 +1,7 @@
 package io.github.xbmlz.ui.dialog;
 
 import io.github.xbmlz.model.KV;
-import io.github.xbmlz.ui.component.AccentColorIcon;
+import io.github.xbmlz.ui.component.ColorIcon;
 import io.github.xbmlz.util.I18n;
 import io.github.xbmlz.util.Theme;
 import net.miginfocom.swing.MigLayout;
@@ -60,7 +60,7 @@ public class SettingsGeneralPanel extends JPanel {
             JPanel accentColorPanel = new JPanel(new FlowLayout(FlowLayout.LEADING, 2, 0));
             ButtonGroup group = new ButtonGroup();
             for (int i = 0; i < accentColorButtons.length; i++) {
-                accentColorButtons[i] = new JToggleButton(new AccentColorIcon(Theme.ACCENT_COLOR_KEYS[i]));
+                accentColorButtons[i] = new JToggleButton(new ColorIcon(Theme.ACCENT_COLOR_KEYS[i]));
                 accentColorButtons[i].setToolTipText(Theme.ACCENT_COLOR_NAMES[i]);
                 accentColorButtons[i].addActionListener(this::accentColorChanged);
                 accentColorPanel.add(accentColorButtons[i]);

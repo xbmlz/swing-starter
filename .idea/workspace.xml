@@ -4,26 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29cd4864-bdd9-46ac-8e67-77dc63fa286b" name="Changes" comment="chore: init commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/component/SystemTray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/dialog/SettingsDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/dialog/SettingsGeneralPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/Theme.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="29cd4864-bdd9-46ac-8e67-77dc63fa286b" name="Changes" comment="chore: format project">
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/component/Splash.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/Images.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/component/TopMenubar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/component/TopMenubar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/demo/DemoTabs.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/demo/SettingsPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/component/AccentColorIcon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/component/ColorIcon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/component/SystemTray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/component/Tray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/dialog/SettingsGeneralPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/dialog/SettingsGeneralPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/Icons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/Icons.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/I18n.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/Prefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/Prefs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/ProcessUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/Themes.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages/messages.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages/messages_zh.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages/messages_zh.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +108,7 @@
       <workItem from="1695868360696" duration="6956000" />
       <workItem from="1695879570199" duration="6597000" />
       <workItem from="1696657841984" duration="301000" />
-      <workItem from="1696658226472" duration="9511000" />
+      <workItem from="1696658226472" duration="11946000" />
     </task>
     <task id="LOCAL-00001" summary="chore: init commit">
       <option name="closed" value="true" />
@@ -127,7 +118,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695886075067</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="chore: format project">
+      <option name="closed" value="true" />
+      <created>1696667776418</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1696667776418</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,6 +145,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="chore: init commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: init commit" />
+    <MESSAGE value="chore: format project" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: format project" />
   </component>
 </project>

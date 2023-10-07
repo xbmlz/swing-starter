@@ -3,6 +3,7 @@ package io.github.xbmlz.ui.component;
 import io.github.xbmlz.App;
 import io.github.xbmlz.util.Constants;
 import io.github.xbmlz.util.I18n;
+import io.github.xbmlz.util.Images;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,9 +13,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Objects;
 
-public class SystemTray {
+public class Tray {
 
-    private static final Logger log = LoggerFactory.getLogger(SystemTray.class);
+    private static final Logger log = LoggerFactory.getLogger(Tray.class);
 
     public static void init() {
         if (!java.awt.SystemTray.isSupported()) {
@@ -40,8 +41,7 @@ public class SystemTray {
         trayMenu.add(exitItem);
 
         // create system tray icon.
-        ImageIcon trayIcon = new ImageIcon(Objects.requireNonNull(SystemTray.class.getResource(Constants.APP_ICON_PNG)));
-        TrayIcon tray = buildTrayIcon(trayIcon, trayDialog, trayMenu);
+        TrayIcon tray = buildTrayIcon(Images.APP_ICON_PNG_32, trayDialog, trayMenu);
         // add the tray icon to the system tray.
         try {
             java.awt.SystemTray.getSystemTray().add(tray);
