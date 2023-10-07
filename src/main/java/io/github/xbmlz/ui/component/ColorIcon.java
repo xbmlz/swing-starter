@@ -7,11 +7,11 @@ import com.formdev.flatlaf.util.ColorFunctions;
 import javax.swing.*;
 import java.awt.*;
 
-public class AccentColorIcon extends FlatAbstractIcon {
+public class ColorIcon extends FlatAbstractIcon {
 
     private final String colorKey;
 
-    public AccentColorIcon(String colorKey) {
+    public ColorIcon(String colorKey) {
         super(16, 16, null);
         this.colorKey = colorKey;
     }

@@ -6,6 +6,7 @@ import com.formdev.flatlaf.util.StringUtils;
 import com.formdev.flatlaf.util.UIScale;
 import io.github.xbmlz.ui.component.Tray;
 import io.github.xbmlz.ui.component.TopMenubar;
+import io.github.xbmlz.ui.panel.DemoPanel;
 import io.github.xbmlz.util.Constants;
 import io.github.xbmlz.util.I18n;
 import io.github.xbmlz.util.Prefs;
@@ -35,6 +36,7 @@ public class MainFrame extends JFrame {
 
     private void initComponents() {
         setJMenuBar(new TopMenubar());
+        add(new DemoPanel());
     }
 
     private void restoreWindowBounds() {
