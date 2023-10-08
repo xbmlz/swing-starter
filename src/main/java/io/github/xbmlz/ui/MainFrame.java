@@ -7,9 +7,9 @@ import com.formdev.flatlaf.ui.FlatUIUtils;
 import com.formdev.flatlaf.util.StringUtils;
 import com.formdev.flatlaf.util.SystemInfo;
 import com.formdev.flatlaf.util.UIScale;
-import io.github.xbmlz.util.Constants;
 import io.github.xbmlz.ui.demo.DemoTabs;
 import io.github.xbmlz.ui.plugin.Prefs;
+import io.github.xbmlz.util.Constants;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,8 +21,6 @@ import java.net.URISyntaxException;
 import java.time.Year;
 
 public class MainFrame extends JFrame {
-
-    public static TrayIcon sysTray;
 
     public static DemoTabs demoTabs;
 

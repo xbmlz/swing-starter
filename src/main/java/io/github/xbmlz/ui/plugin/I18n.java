@@ -77,11 +77,4 @@ public class I18n {
         return String.format(getBundle().getString(key), format);
     }
 
-    public static void main(String[] args) {
-        System.out.println(I18n.get("test.title"));
-        System.out.println(I18n.get("test.hello", I18n.get("test.world")));
-        I18n.setLocale(Locale.ENGLISH);
-        System.out.println(I18n.get("test.title"));
-        System.out.println(I18n.get("test.hello", I18n.get("test.world")));
-    }
 }

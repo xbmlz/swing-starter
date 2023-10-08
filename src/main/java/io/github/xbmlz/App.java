@@ -4,10 +4,10 @@ import com.formdev.flatlaf.extras.FlatInspector;
 import com.formdev.flatlaf.extras.FlatUIDefaultsInspector;
 import com.formdev.flatlaf.util.SystemInfo;
 import io.github.xbmlz.ui.MainFrame;
-import io.github.xbmlz.util.Constants;
 import io.github.xbmlz.ui.plugin.I18n;
 import io.github.xbmlz.ui.plugin.Themes;
 import io.github.xbmlz.ui.plugin.Tray;
+import io.github.xbmlz.util.Constants;
 
 import javax.swing.*;
 import java.awt.*;
