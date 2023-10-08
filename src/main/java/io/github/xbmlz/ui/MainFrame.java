@@ -94,9 +94,9 @@ public class MainFrame extends JFrame {
         JOptionPane.showMessageDialog(this,
                 new Object[]{
                         titleLabel,
-                        "Edits FlatLaf Swing look and feel theme files",
+                        "Swing Application Fast Development Boilerplate",
                         " ",
-                        "Copyright 2019-" + Year.now() + " FormDev Software GmbH",
+                        "Copyright 2019-" + Year.now() + " Xbmlz",
                         linkLabel,
                 },
                 "About", JOptionPane.PLAIN_MESSAGE);
