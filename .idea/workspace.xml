@@ -4,12 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29cd4864-bdd9-46ac-8e67-77dc63fa286b" name="Changes" comment="feat: add splash screen">
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/panel/DemoPanel.java" afterDir="false" />
+    <list default="true" id="29cd4864-bdd9-46ac-8e67-77dc63fa286b" name="Changes" comment="feat: add demo panel">
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/constant/Constants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/constant/Icons.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/constant/Images.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/demo/DemoTabs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/demo/SystemPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/plugin/Fonts.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/plugin/I18n.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/plugin/Prefs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/plugin/Themes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/plugin/Tray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/release.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/release.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/model/KV.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/component/ColorIcon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/component/ColorIcon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/component/Tray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/component/Tray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/component/ColorIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/component/Splash.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/component/TopMenubar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/component/Tray.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/dialog/SettingsDialog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/dialog/SettingsGeneralPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/ui/panel/DemoPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/Config.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/Constants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/I18n.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/Icons.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/Images.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/Prefs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/xbmlz/util/Theme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages/messages_zh.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages/messages_zh.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/themes/FlatDarkLaf.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/themes/FlatLightLaf.properties" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +50,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -70,10 +101,53 @@
       <recent name="E:\code\java\swing-starter\src\main\resources\icons" />
       <recent name="E:\code\java\swing-starter\src\main\resources\images" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\code\java\swing-starter\src\main\resources\themes" />
+      <recent name="E:\code\java\swing-starter\src\main\resources" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="io.github.xbmlz.App" />
+      <module name="swing-starter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.xbmlz.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Fonts" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.github.xbmlz.ui.plugin.Fonts" />
+      <module name="swing-starter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.xbmlz.ui.plugin.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="I18n" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.github.xbmlz.ui.plugin.I18n" />
+      <module name="swing-starter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.xbmlz.ui.plugin.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.github.xbmlz.Main" />
       <module name="swing-starter" />
       <extension name="coverage">
         <pattern>
@@ -87,7 +161,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.App" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Fonts" />
+        <item itemvalue="Application.I18n" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -103,7 +180,7 @@
       <workItem from="1695868360696" duration="6956000" />
       <workItem from="1695879570199" duration="6597000" />
       <workItem from="1696657841984" duration="301000" />
-      <workItem from="1696658226472" duration="13806000" />
+      <workItem from="1696658226472" duration="44843000" />
     </task>
     <task id="LOCAL-00001" summary="chore: init commit">
       <option name="closed" value="true" />
@@ -129,7 +206,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696670212575</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat: add demo panel">
+      <option name="closed" value="true" />
+      <created>1696672085780</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1696672085780</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,6 +235,7 @@
     <MESSAGE value="chore: init commit" />
     <MESSAGE value="chore: format project" />
     <MESSAGE value="feat: add splash screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add splash screen" />
+    <MESSAGE value="feat: add demo panel" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add demo panel" />
   </component>
 </project>

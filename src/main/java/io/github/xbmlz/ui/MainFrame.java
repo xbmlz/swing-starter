@@ -1,42 +1,114 @@
 package io.github.xbmlz.ui;
 
+import com.formdev.flatlaf.FlatClientProperties;
+import com.formdev.flatlaf.extras.FlatDesktop;
 import com.formdev.flatlaf.extras.FlatSVGUtils;
 import com.formdev.flatlaf.ui.FlatUIUtils;
 import com.formdev.flatlaf.util.StringUtils;
+import com.formdev.flatlaf.util.SystemInfo;
 import com.formdev.flatlaf.util.UIScale;
-import io.github.xbmlz.ui.component.Tray;
-import io.github.xbmlz.ui.component.TopMenubar;
-import io.github.xbmlz.ui.panel.DemoPanel;
 import io.github.xbmlz.util.Constants;
-import io.github.xbmlz.util.I18n;
-import io.github.xbmlz.util.Prefs;
-import io.github.xbmlz.util.Theme;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import io.github.xbmlz.ui.demo.DemoTabs;
+import io.github.xbmlz.ui.plugin.Prefs;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.time.Year;
 
 public class MainFrame extends JFrame {
 
-    private static final Logger log = LoggerFactory.getLogger(MainFrame.class);
+    public static TrayIcon sysTray;
+
+    public static DemoTabs demoTabs;
 
     public MainFrame() {
         setTitle(Constants.APP_NAME);
-        setIconImages(FlatSVGUtils.createWindowIconImages(Constants.APP_ICON));
-        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        setLocationRelativeTo(null);
+        setIconImages(FlatSVGUtils.createWindowIconImages("/icons/logo.svg"));
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        restoreWindowBounds();
         initComponents();
-        Tray.init();
-        Theme.init();
-        I18n.init();
+
+        // restore window size and location from preferences
+        restoreWindowBounds();
+
+        // macOS  (see https://www.formdev.com/flatlaf/macos/)
+        if (SystemInfo.isMacOS) {
+            if (SystemInfo.isMacFullWindowContentSupported) {
+                // expand window content into window title bar and make title bar transparent
+                getRootPane().putClientProperty("apple.awt.fullWindowContent", true);
+                getRootPane().putClientProperty("apple.awt.transparentTitleBar", true);
+            }
+
+            // hide window title
+            if (SystemInfo.isJava_17_orLater)
+                getRootPane().putClientProperty("apple.awt.windowTitleVisible", false);
+            else
+                setTitle(null);
+
+            // add gap to left side of toolbar
+            // controlPanel.add(Box.createHorizontalStrut(70), 0);
+
+            // enable full screen mode for this window (for Java 8 - 10; not necessary for Java 11+)
+            if (!SystemInfo.isJava_11_orLater)
+                getRootPane().putClientProperty("apple.awt.fullscreenable", true);
+        }
+
+        // integrate into macOS screen menu
+        FlatDesktop.setAboutHandler(this::about);
+        FlatDesktop.setQuitHandler(response -> {
+            saveWindowBounds();
+            response.performQuit();
+        });
     }
 
     private void initComponents() {
-        setJMenuBar(new TopMenubar());
-        add(new DemoPanel());
+        demoTabs = new DemoTabs();
+        add(demoTabs);
+    }
+
+    private void about() {
+        JLabel titleLabel = new JLabel(Constants.APP_NAME);
+        titleLabel.putClientProperty(FlatClientProperties.STYLE_CLASS, "h1");
+
+        String link = Constants.APP_LINK;
+        JLabel linkLabel = new JLabel("<html><a href=\"#\">" + link + "</a></html>");
+        linkLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        linkLabel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                try {
+                    Desktop.getDesktop().browse(new URI(link));
+                } catch (IOException | URISyntaxException ex) {
+                    JOptionPane.showMessageDialog(linkLabel,
+                            "Failed to open '" + link + "' in browser.",
+                            "About", JOptionPane.PLAIN_MESSAGE);
+                }
+            }
+        });
+
+        JOptionPane.showMessageDialog(this,
+                new Object[]{
+                        titleLabel,
+                        "Edits FlatLaf Swing look and feel theme files",
+                        " ",
+                        "Copyright 2019-" + Year.now() + " FormDev Software GmbH",
+                        linkLabel,
+                },
+                "About", JOptionPane.PLAIN_MESSAGE);
+    }
+
+    private void saveWindowBounds() {
+        Rectangle r = getBounds();
+        int x = UIScale.unscale(r.x);
+        int y = UIScale.unscale(r.y);
+        int width = UIScale.unscale(r.width);
+        int height = UIScale.unscale(r.height);
+        Prefs.put(Prefs.KEY_WINDOW_BOUNDS, x + "," + y + ',' + width + ',' + height);
     }
 
     private void restoreWindowBounds() {
@@ -74,20 +146,5 @@ public class MainFrame extends JFrame {
         // default window size
         setSize(new Dimension(800, 600));
         setLocationRelativeTo(null);
-    }
-
-    private void storeWindowBounds() {
-        Rectangle r = getBounds();
-        int x = UIScale.unscale(r.x);
-        int y = UIScale.unscale(r.y);
-        int width = UIScale.unscale(r.width);
-        int height = UIScale.unscale(r.height);
-        Prefs.put(Prefs.KEY_WINDOW_BOUNDS, x + "," + y + ',' + width + ',' + height);
-    }
-
-    public void quit() {
-        storeWindowBounds();
-        dispose();
-        System.exit(0);
     }
 }
