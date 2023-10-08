@@ -24,8 +24,8 @@ jobs:
         run: mvn clean package -DskipTests
 
       - name: Find JAR
-        id: find_jar
-        run: find target -name '*-jar-with-dependencies.jar'
+        id: find_jar # find '*-jar-with-dependencies.jar'
+        run: echo ::set-output name=stdout::$(find . -name '*-jar-with-dependencies.jar')
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
