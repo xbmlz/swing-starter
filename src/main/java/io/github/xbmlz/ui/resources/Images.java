@@ -1,4 +1,4 @@
-package io.github.xbmlz.ui.assets;
+package io.github.xbmlz.ui.resources;
 
 import javax.swing.*;
 import java.util.Objects;

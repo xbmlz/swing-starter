@@ -4,9 +4,11 @@ import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.extras.FlatAnimatedLafChange;
 import com.formdev.flatlaf.util.FontUtils;
 import com.formdev.flatlaf.util.LoggingFacade;
-import io.github.xbmlz.App;
+import io.github.xbmlz.Launcher;
+import io.github.xbmlz.ui.Application;
 import io.github.xbmlz.ui.plugin.Fonts;
 import io.github.xbmlz.ui.plugin.I18n;
+import io.github.xbmlz.ui.TaskbarIntegration;
 import io.github.xbmlz.ui.plugin.Themes;
 import net.miginfocom.swing.MigLayout;
 
@@ -28,6 +30,8 @@ public class SystemPanel extends JPanel {
 
     private JLabel taskbarProgressLabel;
 
+    private JLabel autoUpdateLabel;
+
     private JComboBox<String> i18nComboBox;
 
     private JComboBox<Themes.ThemeInfo> themeComboBox;
@@ -40,6 +44,8 @@ public class SystemPanel extends JPanel {
 
     private JButton taskbarProgressButton;
 
+    private JButton autoUpdateButton;
+
 
     public SystemPanel() {
         initComponents();
@@ -50,7 +56,7 @@ public class SystemPanel extends JPanel {
         // language
         {
             String[] bundledLocales = I18n.BUNDLED_LOCALES;
-            i18nLabel = new JLabel(I18n.get("demo.system.language"));
+            i18nLabel = I18n.label("demo.system.language");
             i18nComboBox = new JComboBox<>();
             for (String locale : bundledLocales) {
                 i18nComboBox.addItem(locale);
@@ -62,13 +68,13 @@ public class SystemPanel extends JPanel {
                 }
             }
             i18nComboBox.addActionListener(e -> i18nChanged());
-            add(i18nLabel, "width 80");
+            add(i18nLabel, "width 120");
             add(i18nComboBox, "growx");
         }
         // theme
         {
             Themes.ThemeInfo[] bundledThemes = Themes.BUNDLED_THEMES;
-            themeLabel = new JLabel(I18n.get("demo.system.theme"));
+            themeLabel = I18n.label("demo.system.theme");
             themeComboBox = new JComboBox<>();
             for (Themes.ThemeInfo themeInfo : bundledThemes) {
                 themeComboBox.addItem(themeInfo);
@@ -80,7 +86,7 @@ public class SystemPanel extends JPanel {
         // font
         {
             String[] families = Fonts.getAvailableFontFamilies();
-            fontLabel = new JLabel(I18n.get("demo.system.font"));
+            fontLabel = I18n.label("demo.system.font");
             fontComboBox = new JComboBox<>();
             for (String family : families) {
                 fontComboBox.addItem(family);
@@ -97,7 +103,7 @@ public class SystemPanel extends JPanel {
         }
         // font size
         {
-            fontSizeLabel = new JLabel(I18n.get("demo.system.fontsize"));
+            fontSizeLabel = I18n.label("demo.system.fontsize");
             fontSizeComboBox = new JComboBox<>();
             for (int i = 10; i <= 28; i++) {
                 fontSizeComboBox.addItem(i);
@@ -109,57 +115,66 @@ public class SystemPanel extends JPanel {
         }
         // notification
         {
-            notificationLabel = new JLabel(I18n.get("demo.system.notification"));
-            notificationButton = new JButton(I18n.get("demo.system.notification.test"));
+            notificationLabel = I18n.label("demo.system.notification");
+            notificationButton = I18n.button("demo.system.notification.test");
             notificationButton.addActionListener(e -> notificationClicked());
             add(notificationLabel);
             add(notificationButton, "growx");
         }
         // taskbar progress
         {
-            taskbarProgressLabel = new JLabel(I18n.get("demo.system.taskbar.progress"));
-            taskbarProgressButton = new JButton(I18n.get("demo.system.taskbar.progress.test"));
+            taskbarProgressLabel = new JLabel(I18n.t("demo.system.taskbar.progress"));
+            taskbarProgressButton = new JButton(I18n.t("demo.system.taskbar.progress.test"));
             taskbarProgressButton.addActionListener(e -> taskbarProgressClicked());
             add(taskbarProgressLabel);
             add(taskbarProgressButton, "growx");
         }
-    }
-
-    private void taskbarProgressClicked() {
-        if (Taskbar.isTaskbarSupported()) {
-            Taskbar taskbar = Taskbar.getTaskbar();
-            taskbar.setWindowProgressState(App.mainFrame, Taskbar.State.NORMAL);
-            Thread thread = new Thread(() -> {
-                for (int i = 0; i <= 100; i++) {
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException ex) {
-                        LoggingFacade.INSTANCE.logSevere(null, ex);
-                    }
-                    taskbar.setWindowProgressValue(App.mainFrame, i);
-                }
-                taskbar.setWindowProgressState(App.mainFrame, Taskbar.State.OFF);
-            });
-            thread.start();
+        // auto update
+        {
+            autoUpdateLabel = new JLabel(I18n.t("demo.system.autoupdate.title"));
+            autoUpdateButton = new JButton(I18n.t("demo.system.autoupdate.check"));
+            autoUpdateButton.addActionListener(e -> autoUpdateClicked());
+            add(autoUpdateLabel);
+            add(autoUpdateButton, "growx");
         }
     }
 
+    private void autoUpdateClicked() {
+
+    }
+
+    private void taskbarProgressClicked() {
+        TaskbarIntegration taskbar = new TaskbarIntegration();
+        new Thread(() -> {
+            for (int i = 0; i <= 100; i++) {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException ex) {
+                    LoggingFacade.INSTANCE.logSevere(null, ex);
+                }
+                taskbar.setProgressState(Application.mainFrame, i);
+            }
+        }).start();
+    }
+
     private void notificationClicked() {
-        App.systemTray.displayMessage("Test Notification", "This is a test notification", TrayIcon.MessageType.INFO);
+        Application.systemTray.displayMessage("Test Notification", "This is a test notification", TrayIcon.MessageType.INFO);
     }
 
     private void i18nChanged() {
         String item = (String) i18nComboBox.getSelectedItem();
         if (item == null) return;
         I18n.setLocale(new Locale(item));
-        i18nLabel.setText(I18n.get("demo.system.language"));
-        themeLabel.setText(I18n.get("demo.system.theme"));
-        fontLabel.setText(I18n.get("demo.system.font"));
-        fontSizeLabel.setText(I18n.get("demo.system.fontsize"));
-        notificationLabel.setText(I18n.get("demo.system.notification"));
-        notificationButton.setText(I18n.get("demo.system.notification.test"));
-        taskbarProgressLabel.setText(I18n.get("demo.system.taskbar.progress"));
-        taskbarProgressButton.setText(I18n.get("demo.system.taskbar.progress.test"));
+        i18nLabel.setText(I18n.t("demo.system.language"));
+        themeLabel.setText(I18n.t("demo.system.theme"));
+        fontLabel.setText(I18n.t("demo.system.font"));
+        fontSizeLabel.setText(I18n.t("demo.system.fontsize"));
+        notificationLabel.setText(I18n.t("demo.system.notification"));
+        notificationButton.setText(I18n.t("demo.system.notification.test"));
+        taskbarProgressLabel.setText(I18n.t("demo.system.taskbar.progress"));
+        taskbarProgressButton.setText(I18n.t("demo.system.taskbar.progress.test"));
+        autoUpdateLabel.setText(I18n.t("demo.system.autoupdate.title"));
+        autoUpdateButton.setText(I18n.t("demo.system.autoupdate.check"));
     }
 
     private void themeChanged() {

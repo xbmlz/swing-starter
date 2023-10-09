@@ -9,7 +9,7 @@ import com.formdev.flatlaf.util.SystemInfo;
 import com.formdev.flatlaf.util.UIScale;
 import io.github.xbmlz.ui.demo.DemoTabs;
 import io.github.xbmlz.ui.plugin.Prefs;
-import io.github.xbmlz.util.Constants;
+import io.github.xbmlz.util.DesktopUtils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,10 +22,17 @@ import java.time.Year;
 
 public class MainFrame extends JFrame {
 
+    public static MainMenuBar mainMenuBar;
+
+    public static MainToolBar mainToolBar;
+
     public static DemoTabs demoTabs;
 
+    public static StatusBar statusBar;
+
+
     public MainFrame() {
-        setTitle(Constants.APP_NAME);
+        setTitle(Application.APP_NAME);
         setIconImages(FlatSVGUtils.createWindowIconImages("/icons/logo.svg"));
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,7 +64,7 @@ public class MainFrame extends JFrame {
         }
 
         // integrate into macOS screen menu
-        FlatDesktop.setAboutHandler(this::about);
+        FlatDesktop.setAboutHandler(this::showAboutDialog);
         FlatDesktop.setQuitHandler(response -> {
             saveWindowBounds();
             response.performQuit();
@@ -65,27 +72,35 @@ public class MainFrame extends JFrame {
     }
 
     private void initComponents() {
+        mainMenuBar = new MainMenuBar();
+        setJMenuBar(mainMenuBar);
+
+        mainToolBar = new MainToolBar();
+        add(mainToolBar, BorderLayout.NORTH);
+
         demoTabs = new DemoTabs();
         add(demoTabs);
+
+        statusBar = new StatusBar();
+        add(statusBar, BorderLayout.SOUTH);
     }
 
-    private void about() {
-        JLabel titleLabel = new JLabel(Constants.APP_NAME);
+    public void quit() {
+        dispose();
+        System.exit(0);
+    }
+
+    public void showAboutDialog() {
+        JLabel titleLabel = new JLabel(Application.APP_NAME);
         titleLabel.putClientProperty(FlatClientProperties.STYLE_CLASS, "h1");
 
-        String link = Constants.APP_LINK;
+        String link = Application.APP_LINK;
         JLabel linkLabel = new JLabel("<html><a href=\"#\">" + link + "</a></html>");
         linkLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         linkLabel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                try {
-                    Desktop.getDesktop().browse(new URI(link));
-                } catch (IOException | URISyntaxException ex) {
-                    JOptionPane.showMessageDialog(linkLabel,
-                            "Failed to open '" + link + "' in browser.",
-                            "About", JOptionPane.PLAIN_MESSAGE);
-                }
+                DesktopUtils.browseSafe(link);
             }
         });
 

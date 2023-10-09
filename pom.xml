@@ -56,8 +56,22 @@
             <artifactId>miglayout</artifactId>
             <version>3.7.4</version>
         </dependency>
+        <dependency>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
+            <version>2.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.20.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-text</artifactId>
+            <version>1.10.0</version>
+        </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -67,7 +81,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>io.github.xbmlz.App</mainClass>
+                            <mainClass>io.github.xbmlz.Launcher</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

@@ -1,5 +1,6 @@
 package io.github.xbmlz.ui.plugin;
 
+import javax.swing.*;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -57,7 +58,7 @@ public class I18n {
      * @param key String key
      * @return String value
      */
-    public static String get(String key) {
+    public static String t(String key) {
         return getBundle().getString(key);
     }
 
@@ -73,8 +74,39 @@ public class I18n {
      * @param format Object format
      * @return String value
      */
-    public static String get(String key, Object... format) {
+    public static String t(String key, Object... format) {
         return String.format(getBundle().getString(key), format);
     }
 
+    public static JLabel label(String key) {
+        return new JLabel(t(key));
+    }
+
+    public static JLabel label(String key, Object... format) {
+        return new JLabel(t(key, format));
+    }
+
+    public static JButton button(String key) {
+        return new JButton(t(key));
+    }
+
+    public static JButton button(String key, Object... format) {
+        return new JButton(t(key, format));
+    }
+
+    public static JMenu menu(String key) {
+        return new JMenu(t(key));
+    }
+
+    public static JMenu menu(String key, Object... format) {
+        return new JMenu(t(key, format));
+    }
+
+    public static JMenuItem menuItem(String key) {
+        return new JMenuItem(t(key));
+    }
+
+    public static JMenuItem menuItem(String key, Object... format) {
+        return new JMenuItem(t(key, format));
+    }
 }
